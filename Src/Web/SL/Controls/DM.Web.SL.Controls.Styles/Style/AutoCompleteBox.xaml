@@ -1,0 +1,48 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+    <!--AutoCompleteBox-->
+    <Style x:Key="BasicAutoCompleteBox" TargetType="sdk:AutoCompleteBox">
+        <Setter Property="FilterMode" Value="StartsWith" />
+        <Setter Property="Background" Value="#FF1F3B53" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="TabNavigation" Value="Once" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="sdk:AutoCompleteBox">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="PopupStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0:0:0.1" To="PopupOpened" />
+                                    <VisualTransition GeneratedDuration="0:0:0.2" To="PopupClosed" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="PopupOpened">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="Opacity" To="1.0" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="PopupClosed">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="Opacity" To="0.0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <TextBox IsTabStop="True" Padding="2" x:Name="Text" Style="{StaticResource BasicTextBox}" />
+                        <Popup x:Name="Popup" Margin="-1 -2 0 0">
+                            <Border HorizontalAlignment="Stretch" x:Name="PopupBorder" Opacity="0" BorderThickness="1 1 0 1" CornerRadius="3">
+                                <Border.RenderTransform>
+                                    <TranslateTransform X="1" Y="1" />
+                                </Border.RenderTransform>
+                                <ListBox x:Name="Selector" ItemContainerStyle="{StaticResource AutoCompleteListBoxItem}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemTemplate="{TemplateBinding ItemTemplate}" Background="{StaticResource ControlBackgroundBrush}" Style="{StaticResource AutoCompleteListBox}" />
+                            </Border>
+                        </Popup>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="PgrBarStyle" TargetType="ProgressBar">
+        <Setter Property="Background" Value="#00000000"></Setter>
+        <Setter Property="BorderBrush" Value="#FF76C1FF"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                    <GradientStop Color="#FF02435C" Offset="0" />
+                    <GradientStop Color="#FF1197DB" Offset="1" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

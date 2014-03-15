@@ -1,0 +1,19 @@
+<UserControl
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+x:Class="DM.Web.SL.Controls.DragLibrary.DragProxy"
+mc:Ignorable="d" d:DesignWidth="196" d:DesignHeight="195" x:ClassModifier="internal">
+  <UserControl.CacheMode>
+    <BitmapCache RenderAtScale="1" />
+  </UserControl.CacheMode>
+  <Grid x:Name="LayoutRoot">
+    <Image x:Name="imgOk" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,-18"
+           Canvas.ZIndex="1" Source="/Resources/Image/g_ok.png" Width="17" Height="17">
+    </Image>
+    <Image x:Name="imgErr" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,-18"
+           Canvas.ZIndex="1" Source="/Resources/Image/g_err.png" Width="17" Height="17">
+    </Image>
+    <ContentControl x:Name="_content" Margin="0" />
+  </Grid>
+</UserControl>

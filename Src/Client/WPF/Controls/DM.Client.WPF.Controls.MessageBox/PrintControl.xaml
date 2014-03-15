@@ -1,0 +1,15 @@
+﻿<MessageBox:BaseMessageBox x:Class="DM.Client.WPF.Controls.MessageBox.PrintControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                           xmlns:MessageBox="clr-namespace:DM.Client.WPF.Controls.MessageBox" Background="White" VerticalAlignment="Center" HorizontalAlignment="Center">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button x:Name="btnPrint" Grid.Row="0" Style="{DynamicResource BaseButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BtnPrintClick"></Button>
+        <ScrollViewer Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ContentControl x:Name="PreviewControl"/>
+        </ScrollViewer>
+    </Grid>
+</MessageBox:BaseMessageBox>

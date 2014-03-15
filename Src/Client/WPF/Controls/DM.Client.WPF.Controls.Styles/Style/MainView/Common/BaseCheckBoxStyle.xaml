@@ -1,0 +1,130 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--{CheckBox-->
+    <Style x:Key="BaseCheckBox" TargetType="{x:Type CheckBox}">
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Template" Value="{DynamicResource CheckBoxTemplate}" />
+    </Style>
+    <ControlTemplate x:Key="CheckBoxTemplate" TargetType="{x:Type CheckBox}">
+        <ControlTemplate.Resources>
+            <Storyboard x:Key="HoverOn">
+                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="BackgroundOverlay" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1" />
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="HoverOff">
+                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="BackgroundOverlay" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0" />
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="PressedOn">
+                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PressedRectangle" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1" />
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="PressedOff">
+                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PressedRectangle" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0" />
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="CheckedTrue">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="CheckIcon" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1" />
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="CheckedFalse">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="CheckIcon" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0" />
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="IndeterminateOn">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="IndeterminateIcon" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="1" />
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="IndeterminateOff">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="IndeterminateIcon" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0" />
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="FocussedOn">
+                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ContentFocusVisualElement" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1" />
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="FocussedOff">
+                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ContentFocusVisualElement" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0" />
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+        </ControlTemplate.Resources>
+        <BulletDecorator Background="Transparent" x:Name="bulletDecorator">
+            <BulletDecorator.Bullet>
+                <Grid Width="16" Height="16">
+                    <Image Height="13" Margin="1" Width="13" x:Name="Background" Source="/AI3.CatalogueSystem.Client.Styles;component/Resource/Image/Common/CheckBox/checkbox_nor.png"></Image>
+                    <Image Height="13" Margin="1" Opacity="0" x:Name="ContentFocusVisualElement" Width="14"  Source="/AI3.CatalogueSystem.Client.Styles;component/Resource/Image/Common/CheckBox/checkbox_over.png"></Image>
+                    <Image Height="13" Margin="1" Opacity="0" x:Name="PressedRectangle" Width="14"  Source="/AI3.CatalogueSystem.Client.Styles;component/Resource/Image/Common/CheckBox/checkbox_over.png"></Image>
+                    <Image Height="13" Margin="1" Opacity="0" Width="14" x:Name="BackgroundOverlay" Source="/AI3.CatalogueSystem.Client.Styles;component/Resource/Image/Common/CheckBox/checkbox_over.png"></Image>
+                    <Image Height="13" Margin="1" Opacity="0" x:Name="CheckIcon" Width="14"  Source="/AI3.CatalogueSystem.Client.Styles;component/Resource/Image/Common/CheckBox/checkbox_check.png"></Image>
+                    <Image Height="13" Margin="1" Width="14" Opacity="0" x:Name="DisabledVisualElement" Source="/AI3.CatalogueSystem.Client.Styles;component/Resource/Image/Common/CheckBox/checkbox_nor.png"></Image>
+                    <Image Height="13" Margin="1" Width="14" Opacity="0" x:Name="Checkall" Source="/AI3.CatalogueSystem.Client.Styles;component/Resource/Image/Common/CheckBox/checkbox_check.png"></Image>
+                    <Image Height="13" Margin="1" Width="14" Opacity="0" x:Name="IndeterminateIcon" Source="/AI3.CatalogueSystem.Client.Styles;component/Resource/Image/Common/CheckBox/checkbox_nor.png"></Image>
+                </Grid>
+            </BulletDecorator.Bullet>
+            <ContentPresenter RecognizesAccessKey="True" Margin="5,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        </BulletDecorator>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Trigger.ExitActions>
+                    <BeginStoryboard Storyboard="{StaticResource FocussedOff}" x:Name="FocussedOff_BeginStoryboard" />
+                </Trigger.ExitActions>
+                <Trigger.EnterActions>
+                    <BeginStoryboard Storyboard="{StaticResource FocussedOn}" x:Name="FocussedOn_BeginStoryboard" />
+                </Trigger.EnterActions>
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsChecked" Value="True" />
+                    <Condition Property="IsThreeState" Value="True" />
+                </MultiTrigger.Conditions>
+                <MultiTrigger.EnterActions>
+                    <BeginStoryboard x:Name="ThreeStateOn_BeginStoryboard" Storyboard="{StaticResource CheckedFalse}" />
+                </MultiTrigger.EnterActions>
+                <MultiTrigger.ExitActions>
+                    <BeginStoryboard x:Name="ThreeStateOff_BeginStoryboard" Storyboard="{StaticResource CheckedTrue}" />
+                </MultiTrigger.ExitActions>
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsChecked" Value="{x:Null}" />
+                    <Condition Property="IsThreeState" Value="True" />
+                </MultiTrigger.Conditions>
+                <MultiTrigger.EnterActions>
+                    <BeginStoryboard x:Name="ThreeStateOn1_BeginStoryboard" Storyboard="{StaticResource IndeterminateOn}" />
+                </MultiTrigger.EnterActions>
+                <MultiTrigger.ExitActions>
+                    <BeginStoryboard x:Name="ThreeStateOff1_BeginStoryboard" Storyboard="{StaticResource IndeterminateOff}" />
+                </MultiTrigger.ExitActions>
+                <Setter Property="Visibility" TargetName="CheckIcon" Value="Hidden" />
+            </MultiTrigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Trigger.ExitActions>
+                    <BeginStoryboard Storyboard="{StaticResource CheckedFalse}" x:Name="CheckedTrue_BeginStoryboard" />
+                </Trigger.ExitActions>
+                <Trigger.EnterActions>
+                    <BeginStoryboard x:Name="CheckedTrue_BeginStoryboard1" Storyboard="{StaticResource CheckedTrue}" />
+                </Trigger.EnterActions>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Trigger.EnterActions>
+                    <BeginStoryboard Storyboard="{StaticResource HoverOn}" />
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard Storyboard="{StaticResource HoverOff}" />
+                </Trigger.ExitActions>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <!--CheckBox}-->
+</ResourceDictionary>

@@ -1,0 +1,27 @@
+﻿<basics:ChildWindow
+Style="{StaticResource BasicChildWindow}"
+xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+x:Class="DM.Web.SL.Controls.MessageBox.Ai3MessageBox"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Width="350" Title="Tip">
+  <basics:ChildWindow.CacheMode>
+    <BitmapCache RenderAtScale="1" />
+  </basics:ChildWindow.CacheMode>
+  <Grid x:Name="LayoutRoot">
+    <Grid.RowDefinitions>
+      <RowDefinition />
+      <RowDefinition />
+    </Grid.RowDefinitions>
+    <TextBlock Style="{StaticResource BasicTextBlock}" Grid.Row="0" x:Name="msg" TextWrapping="Wrap"
+               HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,30,30,10" />
+    <StackPanel x:Name="container" Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center"
+                VerticalAlignment="Bottom" Margin="30,20,30,10">
+      <Button Style="{StaticResource OperateButton}" x:Name="OKButton" Content="Yes" Click="YesButton_Click"
+              Width="75" Height="25" />
+      <Button Style="{StaticResource OperateButton}" x:Name="NoButton" Content="No" Click="NoButton_Click"
+              Width="75" Height="25" Margin="10,0,0,0" />
+      <Button Style="{StaticResource OperateButton}" x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click"
+              Width="75" Height="25" Margin="10,0,0,0" />
+    </StackPanel>
+  </Grid>
+</basics:ChildWindow>

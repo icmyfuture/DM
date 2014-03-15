@@ -1,0 +1,146 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/interactivedesigner/2006" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
+
+    <!-- Simple Menu - 此模板使用 StackPanel 来对 MenuItem 进行布局 -->
+    <Style x:Key="SimpleMenu" TargetType="{x:Type Menu}">
+        <Setter Property="Background" Value="#ff202020"/>
+        <Setter Property="BorderBrush" Value="#ff434343"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Menu}">
+                    <Grid>
+                        <Border Margin="1" x:Name="Border" BorderBrush="#ff434343" BorderThickness="1"/>
+                        <StackPanel Background="{TemplateBinding Background}" IsItemsHost="True" ClipToBounds="True" Orientation="Horizontal"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource DisabledBorderBrush}" TargetName="Border"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- 此 BitmapEffect 供 Simple MenuItem 使用 -->
+    <DropShadowBitmapEffect x:Key="PopupDropShadow" ShadowDepth="1.5" Softness="0.15"/>
+
+    <!-- Simple MenuItem - 该模板使用触发器来提供四种不同的菜单项排列方式，这些排列方式是通过 Role 属性设置的 -->
+    <Style x:Key="SimpleMenuItem" TargetType="{x:Type MenuItem}">
+        <Setter Property="HorizontalContentAlignment" Value="{Binding Path=HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+        <Setter Property="VerticalContentAlignment" Value="{Binding Path=VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+        <Setter Property="Background" Value="#ff202020"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.MenuTextBrushKey}}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type MenuItem}">
+                    <Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+
+                            <!-- Grid 用于结合 Icon、Content、Glyph 复选标记和 Arrow 的列，以显示下一个级别
+							 Grid 中采用大小共享方式，以便将每个 MenuItem 的 Icon、Content 和 Arrow 一起对齐 -->
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition MinWidth="17" Width="Auto" SharedSizeGroup="MenuItemIconColumnGroup"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIGTColumnGroup"/>
+                                <ColumnDefinition Width="14"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- ContentPresenter 用来显示 Icon (如果需要) -->
+                            <ContentPresenter Margin="4,0,6,0" x:Name="Icon" VerticalAlignment="Center" ContentSource="Icon"/>
+
+                            <!-- Glyph 是一个复选标记(如果可选中的菜单需要) -->
+                            <Grid Visibility="Hidden" Margin="4,0,6,0" x:Name="GlyphPanel" VerticalAlignment="Center">
+                                <Path x:Name="GlyphPanelpath" VerticalAlignment="Center" Fill="{TemplateBinding Foreground}" Data="M0,2 L0,4.8 L2.5,7.4 L7.1,2.8 L7.1,0 L2.5,4.6 z" FlowDirection="LeftToRight"/>
+                            </Grid>
+
+                            <!-- 菜单文本等内容 -->
+                            <ContentPresenter Grid.Column="1"  Margin="0,5,0,0" x:Name="HeaderHost" RecognizesAccessKey="True" ContentSource="Header"/>
+
+                            <!-- 箭头绘制的路径，该路径指向菜单的下一个级别 -->
+                            <Grid Grid.Column="3" Margin="4,0,6,0" x:Name="ArrowPanel" VerticalAlignment="Center">
+                                <Path x:Name="ArrowPanelPath" VerticalAlignment="Center" Fill="{TemplateBinding Foreground}" Data="M0,0 L0,8 L4,4 z"/>
+                            </Grid>
+
+                            <!-- Popup 是向下展开或横向展开(具体取决于该项所处的级别)的菜单的主体 -->
+                            <Popup IsOpen="{Binding Path=IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Right" x:Name="SubMenuPopup" Focusable="false" AllowsTransparency="true" PopupAnimation="{DynamicResource {x:Static SystemParameters.MenuPopupAnimationKey}}" VerticalOffset="-3">
+                                <Grid x:Name="SubMenu">
+                                    <Border x:Name="SubMenuBorder" Background="{DynamicResource WindowBackgroundBrush}" BorderBrush="{DynamicResource SolidBorderBrush}" BorderThickness="1"/>
+
+                                    <!-- StackPanel 保留菜单的子级。这是通过 IsItemsHost=True 来设置的 -->
+                                    <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle"/>
+                                </Grid>
+                            </Popup>
+
+                        </Grid>
+                    </Border>
+
+                    <!-- 这些触发器通过 Role 重新配置 MenuItem 的四种排列方式以显示不同级别的菜单 -->
+                    <ControlTemplate.Triggers>
+
+                        <!-- Role = TopLevelHeader: 这是菜单中的根菜单项；Popup 向下展开 -->
+                        <Trigger Property="Role" Value="TopLevelHeader">
+                            <Setter Property="Margin" Value="0,1,0,1"/>
+                            <Setter Property="Padding" Value="6,3,6,3"/>
+                            <Setter Property="Grid.IsSharedSizeScope" Value="true"/>
+                            <Setter Property="Placement" Value="Bottom" TargetName="SubMenuPopup"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ArrowPanel"/>
+                        </Trigger>
+
+                        <!-- Role = TopLevelItem:  这是没有任何子项的顶级菜单的子菜单项-->
+                        <Trigger Property="Role" Value="TopLevelItem">
+                            <Setter Property="Margin" Value="0,1,0,1"/>
+                            <Setter Property="Padding" Value="6,3,6,3"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ArrowPanel"/>
+                        </Trigger>
+
+                        <!-- Role = SubMenuHeader: 这是不包含子级的子菜单项 -->
+                        <Trigger Property="Role" Value="SubmenuHeader">
+                            <Setter Property="DockPanel.Dock" Value="Top"/>
+                            <Setter Property="Padding" Value="0,2,0,2"/>
+                            <Setter Property="Grid.IsSharedSizeScope" Value="true"/>
+                        </Trigger>
+
+                        <!-- Role = SubMenuItem: 这是包含子级的子菜单项-->
+                        <Trigger Property="Role" Value="SubmenuItem">
+                            <Setter Property="DockPanel.Dock" Value="Top"/>
+                            <Setter Property="Padding" Value="0,2,0,2"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ArrowPanel"/>
+                        </Trigger>
+                        <Trigger Property="IsSuspendingPopupAnimation" Value="true">
+                            <Setter Property="PopupAnimation" Value="None" TargetName="SubMenuPopup"/>
+                        </Trigger>
+
+                        <!-- 如果不存在 Icon，我们会折叠 Icon Content -->
+                        <Trigger Property="Icon" Value="{x:Null}">
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="Icon"/>
+                        </Trigger>
+
+                        <!-- GlyphPanel 包含 CheckMark -->
+                        <Trigger Property="IsChecked" Value="true">
+                            <Setter Property="Visibility" Value="Visible" TargetName="GlyphPanel"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="Icon"/>
+                        </Trigger>
+
+                        <Trigger Property="AllowsTransparency" SourceName="SubMenuPopup" Value="true">
+                            <Setter Property="Margin" Value="0,0,3,3" TargetName="SubMenu"/>
+                            <Setter Property="SnapsToDevicePixels" Value="true" TargetName="SubMenu"/>
+                            <Setter Property="BitmapEffect" Value="{DynamicResource PopupDropShadow}" TargetName="SubMenuBorder"/>
+                        </Trigger>
+
+                        <!-- 对 Menu Highlight 和 IsEnabled 使用系统颜色-->
+                        <Trigger Property="IsHighlighted" Value="true">
+                            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" TargetName="Border"/>
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

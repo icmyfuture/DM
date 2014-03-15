@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="DM.Web.SL.Controls.PagerControl.Pager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+             HorizontalContentAlignment="Center" FontSize="12">
+  <UserControl.CacheMode>
+    <BitmapCache RenderAtScale="1" />
+  </UserControl.CacheMode>
+  <StackPanel x:Name="LayoutRoot" Orientation="Horizontal">
+    <Button ToolTipService.ToolTip="Refresh" x:Name="Refresh" Click="Refresh_Click"
+            Style="{StaticResource PageButton}">
+      <Image Height="20" Width="20" Source="/Resources/Image/Ai3_Buttons_Page_0.png" Stretch="Fill" />
+
+    </Button>
+    <Button ToolTipService.ToolTip="First Page" x:Name="FristPage"
+            Style="{StaticResource PageButton}" Click="FristPage_Click">
+      <Image Source="/Resources/Image/Ai3_Buttons_Page_1.png" Height="20"
+             Width="20" />
+    </Button>
+    <Button ToolTipService.ToolTip="Previous" x:Name="PrePage" Style="{StaticResource PageButton}" 
+             Click="PrePage_Click">
+      <Image Source="/Resources/Image/Ai3_Buttons_Page_2.png" Height="20"
+             Width="20" />
+    </Button>
+
+    <TextBox x:Name="CurrentPage" Style="{StaticResource BasicTextBox}" KeyUp="CurrentPage_KeyUp" Margin="5 0"
+             Width="39" Height="24" TextAlignment="Left" VerticalContentAlignment="Center" Text="1" TextWrapping="NoWrap" />
+    <dataInput:Label Foreground="{StaticResource PagerControl_Label_Foreground}" Content="/"></dataInput:Label>
+    <dataInput:Label Foreground="{StaticResource PagerControl_Label_Foreground}" Margin="5 0" x:Name="totalpage"
+                     Content="0"></dataInput:Label>
+    <dataInput:Label x:Name="Txt_Total" Foreground="{StaticResource PagerControl_Label_Foreground}" Margin="8,0,5,0"
+                     Content="Total" />
+    <dataInput:Label x:Name="lb_totalCount" Foreground="{StaticResource PagerControl_Label_Foreground}"
+                     Margin="0,0,5,0" Content="0" />
+    <Button ToolTipService.ToolTip="Next" x:Name="NextPage" Style="{StaticResource PageButton}" 
+            Click="NextPage_Click">
+      <Image Source="/Resources/Image/Ai3_Buttons_Page_3.png" Height="20"
+             Width="20" />
+    </Button>
+    <Button ToolTipService.ToolTip="Last Page" x:Name="LastPage" Style="{StaticResource PageButton}" 
+             Click="LastPage_Click">
+      <Image Source="/Resources/Image/Ai3_Buttons_Page_4.png" Height="20"
+             Width="20" />
+    </Button>
+    <ComboBox x:Name="SelectPage" Width="45" Style="{StaticResource BasicComboBox}" Margin="5 0" SelectionChanged="SelectPage_SelectionChanged"></ComboBox>
+    </StackPanel>
+</UserControl>

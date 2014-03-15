@@ -1,0 +1,240 @@
+﻿<ResourceDictionary
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:Emit="clr-namespace:System.Reflection.Emit;assembly=mscorlib">
+  <Style x:Key="BasicTextBlock" TargetType="TextBlock">
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="Foreground" Value="White" />
+  </Style>
+  <Style TargetType="TextBlock" BasedOn="{StaticResource BasicTextBlock}" />
+
+  <!--Main-->
+  <Style x:Key="NoteTextBlock" TargetType="TextBlock">
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="Foreground" Value="#ffea5601" />
+  </Style>
+  <Style x:Key="AplicationListTextBlock" TargetType="TextBlock">
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="Foreground" Value="White" />
+  </Style>
+  <Style x:Key="MainOrderlist_Textblock" TargetType="TextBlock">
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="Foreground" Value="White" />
+  </Style>
+  <Style x:Key="Portal_toptitle" TargetType="TextBlock">
+    <Setter Property="FontSize" Value="15" />
+    <Setter Property="Foreground" Value="White" />
+  </Style>
+  <Style x:Key="Portal_Timecodetextblock" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="White" />
+  </Style>
+  <Style x:Key="Portal_List_Title" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="White" />
+  </Style>
+  <Style x:Key="Portal_Task_Title" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="White" />
+  </Style>
+  <Style x:Key="Main_Message_Title" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="White" />
+  </Style>
+  <Style x:Key="Message_Content" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="White" />
+  </Style>
+  <Style x:Key="Advance_Textblock" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="White" />
+  </Style>
+
+  <!--HighStorage_BasicBold_TextBlock-->
+  <Style x:Key="HighStorage_BasicBold_TextBlock" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="White" />
+    <Setter Property="FontWeight" Value="Bold" />
+  </Style>
+    
+  <!--HighStorage_tbHigh_TextBlock-->
+  <Style x:Key="HighStorage_tbHigh_TextBlock" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FF8300" />
+    <Setter Property="FontWeight" Value="Bold" />
+  </Style>
+    
+  <!--Story_*TextBlock-->
+  <Style x:Key="Story_*TextBlock" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#fff89635" />
+  </Style>
+
+    
+  <!--ExportToDisc-->
+  <Style x:Key="ExportToDisc_Title" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FFFF8100" />
+  </Style>
+  <Style x:Key="ExportToDisc_Text" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="Gray" />
+  </Style>
+    
+    
+  <!--Orderlist-->
+  <Style x:Key="Orderlist_Intro_text" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FF8A8A8A" />
+  </Style>
+
+    
+  <!-- Quick Config-->
+  <Style x:Key="QuickConfig_Step1_TextBlock" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#ff9d9d9d" />
+  </Style>
+  <Style x:Key="QuickConfig_setp_intro_textblock" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FF6E6E6E" />
+  </Style>
+
+  <!--AI3.App.ArchiveAndRetrieve-->
+  <Style x:Key="ArchiveAndRetrieve_Text" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="Red" />
+    <Setter Property="FontWeight" Value="Bold" />
+    <Setter Property="FontSize" Value="34" />
+    <Setter Property="FontFamily" Value="Webdings" />
+  </Style>
+
+  <!--Message-->
+  <Style x:Key="Message_BaseText" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="Gray" />
+    <Setter Property="FontSize" Value="13.333" />
+  </Style>
+  <Style x:Key="Message_Text" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="White" />
+    <Setter Property="FontWeight" Value="Bold" />
+    <Setter Property="FontSize" Value="13.333" />
+  </Style>
+  <Style x:Key="Message_DataText" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FFDAD7D7" />
+  </Style>
+  <Style x:Key="Message_WrapText" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FF878787" />
+    <Setter Property="FontSize" Value="12" />
+  </Style>
+
+  <!--MyTask-->
+  <Style x:Key="MyTask_BaseText" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="White" />
+    <Setter Property="FontSize" Value="13.333" />
+  </Style>
+  <Style x:Key="MyTask_NoText" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="Goldenrod" />
+    <Setter Property="FontSize" Value="13.333" />
+  </Style>
+  <Style x:Key="MyTask_ErrorText" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FFFB6767" />
+    <Setter Property="FontSize" Value="13.333" />
+  </Style>
+    
+  <!--AI3.APP.VSM.Proxy-->
+  <Style x:Key="Proxy_Confirm_TextBlock_Foreground" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FFFF7500" />
+  </Style>
+  <Style x:Key="Proxy_Confirm_TextBlock_Result_Forground" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="Red" />
+  </Style>
+  <Style x:Key="Proxy_SelectMediumType_TextBlock_Foreground" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FFF1F1F1" />
+  </Style>
+  <Style x:Key="Proxy_SelectMediumType_description_Foreground" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FF878787" />
+  </Style>
+  <Style x:Key="Proxy_tbNoResult_Foreground" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="Goldenrod" />
+  </Style>
+  <Style x:Key="Proxy_tbErrorMsg_Foreground" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FFFE6902" />
+  </Style>
+
+  <!--Search-->
+  <Style x:Key="Search_VP_Keyfreamnotime_TextBlock" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#ff878787" />
+  </Style>
+  <Style x:Key="Search_VP_CreateDat_TextBlock" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FF838383" />
+  </Style>
+  <!--UserConfiguration-->
+  <Style x:Key="UserConfiguration_Help_TextBlock" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FF878787" />
+  </Style>
+
+  <!--AI3.APP.VSM.Archive-->
+  <Style x:Key="Archive_Text" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FF8B8B8B" />
+  </Style>
+  <Style x:Key="Archive_UIGroupEditFirst_Text" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FF878787" />
+  </Style>
+  <Style x:Key="Archive_UIGroupEditFirst_Text2" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FFFF9529" />
+  </Style>
+  <Style x:Key="Archive_UIGroupEdit_TextRed" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="Red" />
+  </Style>
+  <Style x:Key="Archive_UIGroupEdit_TextSilver" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="Silver" />
+  </Style>
+  <Style x:Key="Archive_UIGroupEdit_LabelWhite" TargetType="Emit:Label">
+    <Setter Property="Foreground" Value="White" />
+  </Style>
+  <Style x:Key="Archive_UIGroupEdit_TextFFABABAB" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FFABABAB" />
+  </Style>
+  <Style x:Key="Archive_LabelFF818181" TargetType="Emit:Label">
+    <Setter Property="Foreground" Value="#FF818181" />
+  </Style>
+  <Style x:Key="Archive_UIGroupEdit_TextFF858585" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FF858585" />
+  </Style>
+  <Style x:Key="Archive_TextBlockFF818181" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FF818181" />
+  </Style>
+
+  <!--AI3.APP.VSM.Restore-->
+  <Style x:Key="Store_tbErrorMsg_Foreground" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FFFE6902" />
+  </Style>
+  <Style x:Key="Store_formatInfo_Foreground" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FFB6B6B6" />
+  </Style>
+
+  <!--VMS.Manage-->
+  <Style x:Key="Manage_Text" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FFFF7500" />
+  </Style>
+  <Style x:Key="Manage_Text1" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FFA5A5A5" />
+  </Style>
+  <Style x:Key="Manage_StackPanelText" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FFB1B1B1" />
+    <Setter Property="TextWrapping" Value="Wrap" />
+  </Style>
+  <Style x:Key="Manage_TipText" TargetType="TextBlock">
+    <Setter Property="Foreground" Value=" #ffEDA400" />
+  </Style>
+  <Style x:Key="Manage_tbText" TargetType="TextBlock">
+    <Setter Property="Foreground" Value=" #FFABABAB" />
+  </Style>
+  <Style x:Key="Manage_txtpresentationText" TargetType="TextBlock">
+    <Setter Property="Foreground" Value=" #FF878787" />
+  </Style>
+  <Style x:Key="Manage_ShowText" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FFFF8508" />
+  </Style>
+
+  <!--AI3.APP.VSM.TapeView-->
+  <Style x:Key="Store_TextBlock_Foreground" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FFFE6902" />
+  </Style>
+  <Style x:Key="Store_TextBlock_More_Foreground" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FFC2C2C2" />
+  </Style>
+  <Style x:Key="Store_MainPage_txtemptyTip_Foreground" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FFFFB000" />
+  </Style>
+    
+    
+    <!--Catalogue-->
+    <Style x:Key="Catalogue_Category_TextBlock" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="Gray"/>
+    </Style>
+</ResourceDictionary>

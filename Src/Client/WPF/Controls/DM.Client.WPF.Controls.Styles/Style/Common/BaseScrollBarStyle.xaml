@@ -1,0 +1,369 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
+
+    <!--ScrollViewer-->
+    <Style x:Key="BasicScrollViewer" TargetType="ScrollViewer">
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Top" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="#ff333333" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ScrollViewer">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2">
+                        <Grid Background="{TemplateBinding Background}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <ScrollContentPresenter Cursor="{TemplateBinding Cursor}" Margin="{TemplateBinding Padding}" x:Name="ScrollContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            <Rectangle Grid.Column="1" Grid.Row="1" />
+                            <ScrollBar x:Name="VerticalScrollBar" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" IsTabStop="False" Grid.Column="1" Grid.Row="0" Orientation="Vertical" ViewportSize="{TemplateBinding ViewportHeight}" Maximum="{TemplateBinding ScrollableHeight}" Minimum="0" Value="{TemplateBinding VerticalOffset}" Style="{StaticResource BasicScrollBar}" />
+                            <ScrollBar x:Name="HorizontalScrollBar" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" IsTabStop="False" Grid.Column="0" Grid.Row="1" Orientation="Horizontal" ViewportSize="{TemplateBinding ViewportWidth}" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0" Value="{TemplateBinding HorizontalOffset}" Style="{StaticResource BasicScrollBar}" Grid.ColumnSpan="2" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    
+    <Style x:Key="BlackScrollviewer" TargetType="ScrollViewer">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ScrollViewer">
+                        <Grid Background="{TemplateBinding Background}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <ScrollContentPresenter x:Name="PART_ContentHost"/>
+                            <Rectangle Grid.Column="1" Grid.Row="1" Fill="Black" Margin="0.5"/>
+                            <ScrollBar x:Name="PART_VerticalScrollBar" Width="18" IsTabStop="False" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Grid.Column="1" Grid.Row="0" Orientation="Vertical" ViewportSize="{TemplateBinding ViewportHeight}" Maximum="{TemplateBinding ScrollableHeight}" Value="{TemplateBinding VerticalOffset}" />
+                            <ScrollBar Height="18" x:Name="PART_HorizontalScrollBar"  IsTabStop="False"  Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"  Grid.Column="0" Grid.Row="1" Orientation="Horizontal" ViewportSize="{TemplateBinding ViewportWidth}" Maximum="{TemplateBinding ScrollableWidth}" Value="{TemplateBinding HorizontalOffset}" />
+                            </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="BaseRepeatButton" d:IsControlPart="True" TargetType="{x:Type RepeatButton}">
+    	<Setter Property="Background" Value="Transparent" />
+    	<Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}" />
+    	<Setter Property="Template">
+    		<Setter.Value>
+    			<ControlTemplate TargetType="{x:Type RepeatButton}">
+    				<ControlTemplate.Resources>
+    					<Storyboard x:Key="HoverOn">
+    						<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="(UIElement.Opacity)">
+    							<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0.8"/>
+    						</DoubleAnimationUsingKeyFrames>
+    					</Storyboard>
+    					<Storyboard x:Key="HoverOff">
+    						<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="(UIElement.Opacity)">
+    							<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0.3"/>
+    						</DoubleAnimationUsingKeyFrames>
+    					</Storyboard>
+    					<Storyboard x:Key="PressedOn">
+    						<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="(UIElement.Opacity)">
+    							<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0.1"/>
+    						</DoubleAnimationUsingKeyFrames>
+    					</Storyboard>
+    					<Storyboard x:Key="PressedOff">
+    						<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="(UIElement.Opacity)">
+    							<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0.3"/>
+    						</DoubleAnimationUsingKeyFrames>
+    					</Storyboard>
+    				</ControlTemplate.Resources>
+    				<Grid>
+    					<Border x:Name="Border" BorderThickness="{TemplateBinding BorderThickness}" Opacity="1" />
+    					<ContentPresenter HorizontalAlignment="Center" x:Name="ContentPresenter" VerticalAlignment="Center" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" Opacity="0.3" Height="Auto" />
+    				</Grid>
+    				<ControlTemplate.Triggers>
+    					<Trigger Property="IsMouseOver" Value="true">
+    						<Trigger.ExitActions>
+    							<BeginStoryboard Storyboard="{StaticResource HoverOff}" x:Name="HoverOff_BeginStoryboard"/>
+    						</Trigger.ExitActions>
+    						<Trigger.EnterActions>
+    							<BeginStoryboard Storyboard="{StaticResource HoverOn}"/>
+    						</Trigger.EnterActions>
+    					</Trigger>
+    					<Trigger Property="IsPressed" Value="true">
+    						<Trigger.ExitActions>
+    							<BeginStoryboard Storyboard="{StaticResource PressedOff}" x:Name="PressedOff_BeginStoryboard"/>
+    						</Trigger.ExitActions>
+    						<Trigger.EnterActions>
+    							<BeginStoryboard Storyboard="{StaticResource PressedOn}" x:Name="PressedOn_BeginStoryboard"/>
+    						</Trigger.EnterActions>
+    					</Trigger>
+    					<Trigger Property="IsEnabled" Value="false">
+    						<Setter Property="Opacity" TargetName="ContentPresenter" Value="0.1"/>
+    					</Trigger>
+    				</ControlTemplate.Triggers>
+    			</ControlTemplate>
+    		</Setter.Value>
+    	</Setter>
+    </Style>
+    <Style x:Key="NuclearThumbStyle" d:IsControlPart="True" TargetType="{x:Type Thumb}">
+    	<Setter Property="Template">
+    		<Setter.Value>
+    			<ControlTemplate TargetType="{x:Type Thumb}">
+    				<ControlTemplate.Resources>
+    					<Storyboard x:Key="HoverOn">
+    						<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="HoverRectangle" Storyboard.TargetProperty="(UIElement.Opacity)">
+    							<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0.8"/>
+    						</DoubleAnimationUsingKeyFrames>
+    					</Storyboard>
+    					<Storyboard x:Key="HoverOff">
+    						<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="HoverRectangle" Storyboard.TargetProperty="(UIElement.Opacity)">
+    							<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0.3"/>
+    						</DoubleAnimationUsingKeyFrames>
+    					</Storyboard>
+    					<Storyboard x:Key="PressedOn">
+    						<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PressedRectangle" Storyboard.TargetProperty="(UIElement.Opacity)">
+    							<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0.1"/>
+    						</DoubleAnimationUsingKeyFrames>
+    					</Storyboard>
+    					<Storyboard x:Key="PressedOff">
+    						<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PressedRectangle" Storyboard.TargetProperty="(UIElement.Opacity)">
+    							<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0.3"/>
+    						</DoubleAnimationUsingKeyFrames>
+    					</Storyboard>
+    				</ControlTemplate.Resources>
+    				<Grid Margin="0,0,0,0" x:Name="Grid">
+    					<Rectangle HorizontalAlignment="Stretch" x:Name="HoverRectangle" VerticalAlignment="Stretch" Width="Auto" Height="Auto" RadiusX="3" RadiusY="4" Stroke="{x:Null}" Margin="4.5,-2,4.5,-2" Opacity="0.3" MinHeight="10">
+    						<Rectangle.Fill>
+    							<SolidColorBrush Color="{DynamicResource WhiteColor}" />
+    						</Rectangle.Fill>
+    					</Rectangle>
+    					<Rectangle HorizontalAlignment="Stretch" x:Name="PressedRectangle" VerticalAlignment="Stretch" Width="Auto" Height="Auto" RadiusX="3" RadiusY="4" Stroke="{x:Null}" Margin="4.5,-2,4.5,-2" Opacity="0.3" MinHeight="10">
+    						<Rectangle.Fill>
+    							<SolidColorBrush Color="{DynamicResource WhiteColor}" />
+    						</Rectangle.Fill>
+    					</Rectangle>
+    				</Grid>
+    				<ControlTemplate.Triggers>
+    					<Trigger Property="IsFocused" Value="True" />
+    					<Trigger Property="IsMouseOver" Value="True">
+    						<Trigger.ExitActions>
+    							<BeginStoryboard Storyboard="{StaticResource HoverOff}" x:Name="HoverOff_BeginStoryboard"/>
+    						</Trigger.ExitActions>
+    						<Trigger.EnterActions>
+    							<BeginStoryboard Storyboard="{StaticResource HoverOn}"/>
+    						</Trigger.EnterActions>
+    					</Trigger>
+    					<Trigger Property="IsEnabled" Value="False" >
+    						<Setter Property="Opacity" TargetName="Grid" Value="0.1"/>
+    					</Trigger>
+    					<Trigger Property="IsDragging" Value="True">
+    						<Trigger.ExitActions>
+    							<BeginStoryboard Storyboard="{StaticResource PressedOff}" x:Name="PressedOff_BeginStoryboard"/>
+    						</Trigger.ExitActions>
+    						<Trigger.EnterActions>
+    							<BeginStoryboard Storyboard="{StaticResource PressedOn}" x:Name="PressedOn_BeginStoryboard"/>
+    						</Trigger.EnterActions>
+    					</Trigger>
+    				</ControlTemplate.Triggers>
+    			</ControlTemplate>
+    		</Setter.Value>
+    	</Setter>
+    </Style>
+    <Style x:Key="NuclearScrollRepeatButtonStyle" d:IsControlPart="True" TargetType="{x:Type RepeatButton}">
+    	<Setter Property="Background" Value="Transparent" />
+    	<Setter Property="BorderBrush" Value="Transparent" />
+    	<Setter Property="IsTabStop" Value="false" />
+    	<Setter Property="Focusable" Value="false" />
+    	<Setter Property="Template">
+    		<Setter.Value>
+    			<ControlTemplate TargetType="{x:Type RepeatButton}">
+    				<Grid>
+    					<Rectangle Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}" />
+    				</Grid>
+    			</ControlTemplate>
+    		</Setter.Value>
+    	</Setter>
+    </Style>
+    <Style x:Key="BasicScrollBar" TargetType="{x:Type ScrollBar}">
+    	<Setter Property="Stylus.IsFlicksEnabled" Value="false" />
+    	<Setter Property="Background" Value="Transparent"/>
+    	<Setter Property="FocusVisualStyle" Value="{x:Null}" />
+    	<Setter Property="Template">
+    		<Setter.Value>
+    			<ControlTemplate TargetType="{x:Type ScrollBar}">
+    				<Grid x:Name="GridRoot" Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" Background="#ff000000">
+    					<Grid.RowDefinitions>
+    						<RowDefinition MaxHeight="16" />
+    						<RowDefinition Height="0.00001*" />
+    						<RowDefinition MaxHeight="16" />
+    					</Grid.RowDefinitions>
+    					<VisualStateManager.VisualStateGroups>
+    						<VisualStateGroup x:Name="CommonStates">
+    							<VisualState x:Name="Normal"/>
+    							<VisualState x:Name="MouseOver"/>
+    							<VisualState x:Name="Disabled"/>
+    						</VisualStateGroup>
+    						<VisualStateGroup x:Name="ValidationStates">
+    							<VisualState x:Name="Valid"/>
+    							<VisualState x:Name="InvalidFocused"/>
+    							<VisualState x:Name="InvalidUnfocused"/>
+    						</VisualStateGroup>
+    					</VisualStateManager.VisualStateGroups>
+    					<RepeatButton  Style="{StaticResource BaseRepeatButton}" x:Name="DecreaseRepeat" Command="ScrollBar.LineUpCommand" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+    						<Grid Margin="0,0,0,0">
+    							<Path Margin="4.742,3.997,4.946,5.327" VerticalAlignment="Stretch" Height="Auto" Fill="White" Stretch="Fill" Stroke="{DynamicResource GlyphBrush}" StrokeThickness="1" Data="M5.2422477,11.132184 L11.5544,11.132184 8.6412958,4.4969033 z" x:Name="DecreaseArrow" />
+    						</Grid>
+    					</RepeatButton>
+    					<Track Grid.Row="1" x:Name="PART_Track" Orientation="Vertical" IsDirectionReversed="true">
+    						<Track.Thumb>
+    							<Thumb Style="{DynamicResource NuclearThumbStyle}" Background="{x:Null}" Foreground="{x:Null}" />
+    						</Track.Thumb>
+    						<Track.IncreaseRepeatButton>
+    							<RepeatButton x:Name="PageUp" Style="{DynamicResource NuclearScrollRepeatButtonStyle}" Command="ScrollBar.PageDownCommand" />
+    						</Track.IncreaseRepeatButton>
+    						<Track.DecreaseRepeatButton>
+    							<RepeatButton x:Name="PageDown" Style="{DynamicResource NuclearScrollRepeatButtonStyle}" Command="ScrollBar.PageUpCommand" />
+    						</Track.DecreaseRepeatButton>
+    					</Track>
+
+    					<RepeatButton Style="{StaticResource BaseRepeatButton}" Grid.Row="2" x:Name="IncreaseRepeat" Command="ScrollBar.LineDownCommand">
+    						<Grid Background="Black">
+    							<Path Margin="4.742,3.997,4.946,5.327" x:Name="IncreaseArrow" VerticalAlignment="Stretch" Height="Auto" Fill="White" Stretch="Fill" Stroke="{DynamicResource GlyphBrush}" StrokeThickness="1" Data="M5.2422477,11.132184 L11.5544,11.132184 8.6412958,4.4969033 z" RenderTransformOrigin="0.5,0.5">
+    								<Path.RenderTransform>
+    									<TransformGroup>
+    										<ScaleTransform ScaleX="1" ScaleY="1" />
+    										<SkewTransform AngleX="0" AngleY="0" />
+    										<RotateTransform Angle="180" />
+    										<TranslateTransform X="0" Y="0" />
+    									</TransformGroup>
+    								</Path.RenderTransform>
+    							</Path>
+    						</Grid>
+    					</RepeatButton>
+    				</Grid>
+    				<ControlTemplate.Triggers>
+    					<Trigger Property="Orientation" Value="Horizontal">
+    						<Setter Property="LayoutTransform" TargetName="GridRoot">
+    							<Setter.Value>
+    								<RotateTransform Angle="-90" />
+    							</Setter.Value>
+    						</Setter>
+    						<Setter TargetName="PART_Track" Property="Orientation" Value="Vertical" />
+    						<Setter Property="Command" Value="ScrollBar.LineLeftCommand" TargetName="DecreaseRepeat" />
+    						<Setter Property="Command" Value="ScrollBar.LineRightCommand" TargetName="IncreaseRepeat" />
+    						<Setter Property="Command" Value="ScrollBar.PageLeftCommand" TargetName="PageDown" />
+    						<Setter Property="Command" Value="ScrollBar.PageRightCommand" TargetName="PageUp" />
+    						<Setter Property="Margin" Value="0 0 0 0"/>
+    					</Trigger>
+    				</ControlTemplate.Triggers>
+    			</ControlTemplate>
+    		</Setter.Value>
+    	</Setter>
+    </Style>
+
+
+
+    <!--{滚动条模块-->
+	  <Style x:Key="ScrollBarThumbStyle" TargetType="{x:Type Thumb}">
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Margin" Value="0,0,0,0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Grid Width="9">
+                            <Rectangle Name="Slide" Width="9" Height="52" Fill="black"></Rectangle>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    <Style TargetType="{x:Type ScrollBar}">
+        <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ScrollBar}">
+                    <Grid x:Name="GridRoot" Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" Background="#ff000000">
+                        <Grid.RowDefinitions>
+                            <RowDefinition MaxHeight="16" />
+                            <RowDefinition Height="0.00001*" />
+                            <RowDefinition MaxHeight="16" />
+                        </Grid.RowDefinitions>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="MouseOver"/>
+                                <VisualState x:Name="Disabled"/>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="ValidationStates">
+                                <VisualState x:Name="Valid"/>
+                                <VisualState x:Name="InvalidFocused"/>
+                                <VisualState x:Name="InvalidUnfocused"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <RepeatButton  Style="{StaticResource BaseRepeatButton}" x:Name="DecreaseRepeat" Command="ScrollBar.LineUpCommand" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                            <Grid Margin="0,0,0,0">
+                                <Path Margin="4.742,3.997,4.946,5.327" VerticalAlignment="Stretch" Height="Auto" Fill="White" Stretch="Fill" Stroke="{DynamicResource GlyphBrush}" StrokeThickness="1" Data="M5.2422477,11.132184 L11.5544,11.132184 8.6412958,4.4969033 z" x:Name="DecreaseArrow" />
+                            </Grid>
+                        </RepeatButton>
+                        <Track Grid.Row="1" x:Name="PART_Track" Orientation="Vertical" IsDirectionReversed="true">
+                            <Track.Thumb>
+                                <Thumb Style="{DynamicResource NuclearThumbStyle}" Background="{x:Null}" Foreground="{x:Null}" />
+                            </Track.Thumb>
+                            <Track.IncreaseRepeatButton>
+                                <RepeatButton x:Name="PageUp" Style="{DynamicResource NuclearScrollRepeatButtonStyle}" Command="ScrollBar.PageDownCommand" />
+                            </Track.IncreaseRepeatButton>
+                            <Track.DecreaseRepeatButton>
+                                <RepeatButton x:Name="PageDown" Style="{DynamicResource NuclearScrollRepeatButtonStyle}" Command="ScrollBar.PageUpCommand" />
+                            </Track.DecreaseRepeatButton>
+                        </Track>
+
+                        <RepeatButton Style="{StaticResource BaseRepeatButton}" Grid.Row="2" x:Name="IncreaseRepeat" Command="ScrollBar.LineDownCommand">
+                            <Grid Background="Black">
+                                <Path Margin="4.742,3.997,4.946,5.327" x:Name="IncreaseArrow" VerticalAlignment="Stretch" Height="Auto" Fill="White" Stretch="Fill" Stroke="{DynamicResource GlyphBrush}" StrokeThickness="1" Data="M5.2422477,11.132184 L11.5544,11.132184 8.6412958,4.4969033 z" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                            <SkewTransform AngleX="0" AngleY="0" />
+                                            <RotateTransform Angle="180" />
+                                            <TranslateTransform X="0" Y="0" />
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Grid>
+                        </RepeatButton>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Orientation" Value="Horizontal">
+                            <Setter Property="LayoutTransform" TargetName="GridRoot">
+                                <Setter.Value>
+                                    <RotateTransform Angle="-90" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="PART_Track" Property="Orientation" Value="Vertical" />
+                            <Setter Property="Command" Value="ScrollBar.LineLeftCommand" TargetName="DecreaseRepeat" />
+                            <Setter Property="Command" Value="ScrollBar.LineRightCommand" TargetName="IncreaseRepeat" />
+                            <Setter Property="Command" Value="ScrollBar.PageLeftCommand" TargetName="PageDown" />
+                            <Setter Property="Command" Value="ScrollBar.PageRightCommand" TargetName="PageUp" />
+                            <Setter Property="Margin" Value="0 0 0 0"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style> 
+    <!--滚动条模块}-->
+</ResourceDictionary>

@@ -1,0 +1,179 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- data grid row styled, custom colors and rollover/selection property triggers -->
+    <Style TargetType="{x:Type DataGridRow}">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="Background" Value="#ff151515" />
+        <Setter Property="BorderThickness" Value="0,1,0,1" />
+        <Setter Property="Margin" Value="0 -1 0 -1 " />
+        <Setter Property="BorderBrush" Value="#ff444444" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" Value="#323232" />
+            </Trigger>
+            <Trigger Property="IsSelected" Value="true">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#cc6633" Offset="0"/>
+                            <GradientStop Color="#993300" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="CompleteDataRow" TargetType="{x:Type DataGridRow}">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="Background" Value="#ff151515" />
+        <Setter Property="BorderThickness" Value="0,1,0,1" />
+        <Setter Property="Margin" Value="0 -1 0 -1 " />
+        <Setter Property="Height" Value="30"></Setter>
+        <Setter Property="BorderBrush" Value="#ff444444" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" Value="#323232" />
+            </Trigger>
+            <Trigger Property="IsSelected" Value="true">
+                <Setter Property="Background" Value="#323232" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+   
+    <!-- styled to remove the standard blue selection colour and increase the padding -->
+    <Style x:Key="{x:Type DataGridCell}" TargetType="{x:Type DataGridCell}">
+        <Setter Property="BorderBrush" Value="White" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                    <Border Padding="6" BorderBrush="#ff444444" BorderThickness="0 0 1 1" Margin="0 0 -1 -1">
+                        <ContentPresenter/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- column headers styled to create a rounded tab effect and to add sort arrows -->
+    <!--DataGridColumnHeader-->
+    <Style TargetType="{x:Type DataGridColumnHeader}">
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Padding" Value="2 0"/>
+        <Setter Property="BorderBrush" Value="#515151"/>
+        <Setter Property="BorderThickness" Value="0 0 1 1"/>
+        <Setter Property="MinHeight" Value="26"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Background" >
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF282828" Offset="0"/>
+                    <GradientStop Color="#FF080808" Offset="1"/>
+                    <GradientStop Color="#FF1E1E1E" Offset="0.554"/>
+                    <GradientStop Color="#FF0F0F0F" Offset="0.554"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- For the columns added programatically -->
+    <Style x:Key="BaseDataGridColumnHeader"  TargetType="{x:Type DataGridColumnHeader}">
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Padding" Value="2 0"/>
+        <Setter Property="BorderBrush" Value="#515151"/>
+        <Setter Property="BorderThickness" Value="0 0 1 1"/>
+        <Setter Property="MinHeight" Value="26"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Background" >
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF282828" Offset="0"/>
+                    <GradientStop Color="#FF080808" Offset="1"/>
+                    <GradientStop Color="#FF1E1E1E" Offset="0.554"/>
+                    <GradientStop Color="#FF0F0F0F" Offset="0.554"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="RequiredDataGridColumnHeader" TargetType="{x:Type DataGridColumnHeader}">
+        <Setter Property="Foreground" Value="#ff818181" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="SeparatorBrush" Value="#FF222222" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                    <Grid x:Name="Root">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="10" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Border x:Name="BackgroundRectangle" Grid.ColumnSpan="2" BorderBrush="#ff515151" BorderThickness="1 0 0 1"  Grid.RowSpan="2"  >
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF282828" Offset="0"/>
+                                    <GradientStop Color="#FF080808" Offset="1"/>
+                                    <GradientStop Color="#FF1E1E1E" Offset="0.554"/>
+                                    <GradientStop Color="#FF0F0F0F" Offset="0.554"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                        <Rectangle x:Name="HoverRectangle" Grid.ColumnSpan="2" Grid.RowSpan="2" Stretch="Fill" Fill="{StaticResource HoverBrush}" Opacity="0" />
+                        <StackPanel Height="16" Margin="5,0,5,-7" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
+                            <ContentPresenter Cursor="{TemplateBinding Cursor}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}">
+
+                                <ToolTipService.ToolTip>
+                                    <ToolTip Style="{DynamicResource NormalToolTip}">
+                                        <TextBlock Text="{TemplateBinding Content}" MaxWidth="300" TextWrapping="Wrap"/>
+                                    </ToolTip>
+                                </ToolTipService.ToolTip>
+                            </ContentPresenter>
+                            <TextBlock Text="*" Foreground="#fff89635" VerticalAlignment="Center" Height="10" Margin="5,0,0,0" HorizontalAlignment="Right" Width="6" />
+                        </StackPanel>
+                        <Rectangle x:Name="VerticalSeparator" VerticalAlignment="Stretch" Width="2" Visibility="{TemplateBinding SeparatorVisibility}" Grid.Column="1" Grid.RowSpan="2" Fill="#FF141414" HorizontalAlignment="Right" />
+                        <Path HorizontalAlignment="Left" x:Name="SortIcon" VerticalAlignment="Center" Width="8" Opacity="0" RenderTransformOrigin=".5,.5" Grid.Column="1" Grid.RowSpan="2" Fill="#FFFFFFFF" Stretch="Uniform" Data="F1 M -5.215,6.099L 5.215,6.099L 0,0L -5.215,6.099 Z ">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX=".9" ScaleY=".9" x:Name="SortIconTransform" />
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BaseDataGrid" TargetType="{x:Type DataGrid}">
+        <Setter Property="Background" Value="#ff151515" />
+        <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+        <Setter Property="Foreground" Value="#ffffff"></Setter>
+        <Setter Property="BorderBrush" Value="#515151" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="RowHeaderWidth" Value="0"></Setter>
+        <!-- This is needed to force DG to have a non-default value.  Otherwise the DGR.DetailsVisibility cannot have a value of VisibleWhenSelected by default. -->
+        <Style.Triggers>
+            <Trigger Property="IsGrouping" Value="true">
+                <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+            </Trigger>
+            <Trigger Property="IsFocused" Value="true">
+                <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="DM.Web.SL.Controls.ButtonComboBox.ButtonComboBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <UserControl.CacheMode>
+    <BitmapCache RenderAtScale="1" />
+  </UserControl.CacheMode>
+  <Grid x:Name="LayoutRoot">
+    <ComboBox x:Name="Button_ComboBox" Style="{StaticResource ComboButton_Box}">
+      <ComboBox.CacheMode>
+        <BitmapCache RenderAtScale="1" />
+      </ComboBox.CacheMode>
+    </ComboBox>
+    <Button x:Name="Button_ComboBox_Value" Style="{StaticResource ComboButton_Value}"
+            Tag="{Binding ElementName=Button_ComboBox,Path=SelectedItem}" Click="ButtonComboBoxValueClick">
+    </Button>
+    <RepeatButton Style="{StaticResource ComboButton_Repeat}" x:Name="Button_ComboBox_Select"
+                  Click="ButtonComboBoxSelectClick" MouseEnter="ButtonComboBoxSelectMouseEnter">
+      <RepeatButton.CacheMode>
+        <BitmapCache RenderAtScale="1" />
+      </RepeatButton.CacheMode>
+    </RepeatButton>
+  </Grid>
+</UserControl>

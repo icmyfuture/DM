@@ -1,0 +1,32 @@
+h1 {
+	font-family: "Bodoni MT";
+	font-size: 24px;
+	font-style: italic;
+}
+
+h2 {
+	font-family: Courier;
+	font-size: 18px;
+	font-style: oblique
+}
+
+p {
+	font-size: 12px;
+	font-style: italic;
+	font-family: Roman;
+}
+
+#inputButton {
+	font-size: 15px;
+	font-style: italic;
+	font-family: serif
+}
+
+#image {
+	width: 300px;
+	height: 200px;
+}
+
+#images img {
+	display: none;
+}

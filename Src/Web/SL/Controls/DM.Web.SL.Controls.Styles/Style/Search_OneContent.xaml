@@ -1,0 +1,15 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<!--该文件里的所有都只是针对检索出来的单个素材显示样式-->
+    <SolidColorBrush x:Key="SOC_Show_border_color" Color="#cc6600"/>
+    <LinearGradientBrush x:Key="SOC_Show_border_bg" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF646464" Offset="0" />
+        <GradientStop Color="#FF0E0E0E" Offset="1" />
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="SOC_Img_border" Color="#ff757575"/>
+    <!--图片显示时长-->
+    <SolidColorBrush x:Key="SOC_Rectangle_Fill" Color="Black"/>
+    <!--禁用时遮罩的颜色-->
+    <SolidColorBrush x:Key="Search_VT_List_DisBorder" Color="Black"/>
+</ResourceDictionary>

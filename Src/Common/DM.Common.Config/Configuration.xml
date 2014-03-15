@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DMConfiguration>
+	<IIS>172.16.136.8</IIS>
+	<GlobalServer>172.16.136.8</GlobalServer>
+</DMConfiguration>

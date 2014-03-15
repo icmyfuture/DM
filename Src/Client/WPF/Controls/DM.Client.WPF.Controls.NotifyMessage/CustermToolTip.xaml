@@ -1,0 +1,12 @@
+﻿<Border x:Class="DM.Client.WPF.Controls.NotifyMessage.CustermToolTip"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Background="#FA050505"
+             CornerRadius="4"
+          Opacity="0.8"
+          Width="Auto"
+          Height="Auto">
+    <TextBlock x:Name="tblContent" Background="#AAFFFFFF"></TextBlock>
+</Border>

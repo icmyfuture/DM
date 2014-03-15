@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{344EE3FB-1FD0-4541-9459-82CEDD12111F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DM.Client.WPF.Controls.Styles</RootNamespace>
+    <AssemblyName>DM.Client.WPF.Controls.Styles</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.20621.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\..\Publish\Client\WPF\Dlls\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\..\Publish\Client\WPF\Dlls\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFToolkit.Extended, Version=1.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Lib\WPF\WPFToolkit.Extended.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="StyleManager.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\add.png" />
+    <Resource Include="Resource\Image\Common\Button\Buttons_Page_dis.png" />
+    <Resource Include="Resource\Image\Common\Button\Buttons_Page_down.PNG" />
+    <Resource Include="Resource\Image\Common\Button\Buttons_Page_nor.PNG" />
+    <Resource Include="Resource\Image\Common\Button\Buttons_Page_over.PNG" />
+    <Resource Include="Resource\Image\Common\Button\all_inport.png" />
+    <Resource Include="Resource\Image\Common\Button\all_refresh.png" />
+    <Resource Include="Resource\Image\Common\Button\close_nor.png" />
+    <Resource Include="Resource\Image\Common\Button\close_over.png" />
+    <Resource Include="Resource\Image\Common\Button\fff.png" />
+    <Resource Include="Resource\Image\Common\Button\xms_close_down.png" />
+    <Resource Include="Resource\Image\Common\Button\xms_close_nor.png" />
+    <Resource Include="Resource\Image\Common\Button\xms_close_over.png" />
+    <Resource Include="Resource\Image\Common\CheckBox\checkbox_check.png" />
+    <Resource Include="Resource\Image\Common\CheckBox\checkbox_dis.png" />
+    <Resource Include="Resource\Image\Common\CheckBox\checkbox_nor.png" />
+    <Resource Include="Resource\Image\Common\CheckBox\checkbox_over.png" />
+    <Resource Include="Resource\Image\Common\CheckBox\IndeterminateIcon.png" />
+    <Resource Include="Resource\Image\Common\ComboBox\Combox_down.png" />
+    <Resource Include="Resource\Image\Common\ComboBox\Combox_nor.png" />
+    <Resource Include="Resource\Image\Common\ComboBox\combobox_hover.png" />
+    <Resource Include="Resource\Image\Common\ComboBox\combox_bg.png" />
+    <Resource Include="Resource\Image\Common\DatePicker\datePicker.png" />
+    <Resource Include="Resource\Image\Common\Expander\Exleft.png" />
+    <Resource Include="Resource\Image\Common\Expander\Exright.png" />
+    <Resource Include="Resource\Image\demo_desk.png" />
+    <Resource Include="Resource\Image\MainWindow\app.ico" />
+    <Resource Include="Resource\Image\MainWindow\botton_bottom.png" />
+    <Resource Include="Resource\Image\MainWindow\close_down.png" />
+    <Resource Include="Resource\Image\MainWindow\close_nor.png" />
+    <Resource Include="Resource\Image\MainWindow\close_over.png" />
+    <Resource Include="Resource\Image\MainWindow\config_down.png" />
+    <Resource Include="Resource\Image\MainWindow\config_nor.png" />
+    <Resource Include="Resource\Image\MainWindow\config_over.png" />
+    <Resource Include="Resource\Image\MainWindow\help_down.png" />
+    <Resource Include="Resource\Image\MainWindow\help_nor.png" />
+    <Resource Include="Resource\Image\MainWindow\help_over.png" />
+    <Resource Include="Resource\Image\MainWindow\Main.ico" />
+    <Resource Include="Resource\Image\MainWindow\Main2.ico" />
+    <Resource Include="Resource\Image\MainWindow\max_down.png" />
+    <Resource Include="Resource\Image\MainWindow\max_nor.png" />
+    <Resource Include="Resource\Image\MainWindow\max_over.png" />
+    <Resource Include="Resource\Image\MainWindow\min_down.png" />
+    <Resource Include="Resource\Image\MainWindow\min_nor.png" />
+    <Resource Include="Resource\Image\MainWindow\min_over.png" />
+    <Resource Include="Resource\Image\MainWindow\normal_down2.png" />
+    <Resource Include="Resource\Image\MainWindow\normal_nor2.png" />
+    <Resource Include="Resource\Image\MainWindow\normal_over2.png" />
+    <Resource Include="Resource\Image\MainWindow\rich_logo.png" />
+    <Resource Include="Resource\Image\MainWindow\setting.png" />
+    <Resource Include="Resource\Image\MainWindow\setting_down.png" />
+    <Resource Include="Resource\Image\MainWindow\setting_nor.png" />
+    <Resource Include="Resource\Image\MainWindow\setting_over.png" />
+    <Resource Include="Resource\Image\MainWindow\XMS.ico" />
+    <Resource Include="Resource\Image\NavControl\add_ico.png" />
+    <Resource Include="Resource\Image\NavControl\del_ico.png" />
+    <Resource Include="Resource\Image\NavControl\discIco.png" />
+    <Resource Include="Resource\Image\NavControl\fileIco.png" />
+    <Resource Include="Resource\Image\NavControl\filenote.png" />
+    <Resource Include="Resource\Image\NavControl\LeftBar\digitize.png" />
+    <Resource Include="Resource\Image\NavControl\LeftBar\disk_ico.png" />
+    <Resource Include="Resource\Image\NavControl\LeftBar\EX.png" />
+    <Resource Include="Resource\Image\NavControl\LeftBar\HDD.png" />
+    <Resource Include="Resource\Image\NavControl\LeftBar\left_bar_down.png" />
+    <Resource Include="Resource\Image\NavControl\LeftBar\left_bar_nor.png" />
+    <Resource Include="Resource\Image\NavControl\LeftBar\left_bar_over.png" />
+    <Resource Include="Resource\Image\NavControl\LeftBar\p2.png" />
+    <Resource Include="Resource\Image\NavControl\LeftBar\SDI.png" />
+    <Resource Include="Resource\Image\NavControl\LeftBar\Task.png" />
+    <Resource Include="Resource\Image\NavControl\LeftBar\U1.png" />
+    <Resource Include="Resource\Image\radiobox_check.png" />
+    <Resource Include="Resource\Image\radiobox_nor.png" />
+    <Resource Include="Resource\Image\radiobox_over.png" />
+    <Resource Include="Resource\Image\RadioButton_dis.png" />
+    <Resource Include="Resource\Image\viewtask.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Style\NavControlStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BaseButtonStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BaseCheckBoxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BaseClipListControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BaseColor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BaseComboBoxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BaseDatagridStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BaseDatePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BaseExpander.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BaseGroupBoxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BaseListBoxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BaseListViewStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BasePasswordBoxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BasePrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BaseProgressBarStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BaseRadioButtonStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BaseScrollBarStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BaseSliderStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BaseTabControlStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BaseTextBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BaseTextBoxPoint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BaseTextBoxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BaseToolTipStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BaseTreeViewStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\BasicListBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\contextmenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\MyFocusVisual.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\Simple_Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Common\ValidateTextBoxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\MainView\Common\BaseCheckBoxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\MainView\Common\BaseColor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\MainView\Common\BaseComboBoxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\MainView\Common\BaseScrollBarStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\MainView\Common\BaseTextBoxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\MainView\Common\MyFocusVisual.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\MainView\GridSplitter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\MainView\Setting_button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\MainView\Window_close_button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\MainView\window_config_button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\MainView\window_help_button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\MainView\Window_max_button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\MainView\Window_min_button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\MessageBox\BaseMessageBoxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\PgrMessageBox\BasePgrMessageBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\TaskListButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\add_ico.png" />
+    <Resource Include="Resource\Image\del_ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\Common\Button\HeaderImage_down.png" />
+    <Resource Include="Resource\Image\Common\Button\HeaderImage_nor.png" />
+    <Resource Include="Resource\Image\Common\Button\HeaderImage_over.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\Icon_Tips_0.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

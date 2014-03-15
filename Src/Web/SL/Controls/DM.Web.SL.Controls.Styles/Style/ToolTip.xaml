@@ -1,0 +1,45 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--ToolTip:ToolTip文字换行-->
+    <Style x:Key="ToolTipTextBlock" TargetType="TextBlock">
+        <Setter Property="Margin" Value="0,4,0,0" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontFamily" Value="Arial,SimSun,MS UI Gothic" />
+        <Setter Property="LineHeight" Value="12"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <!--<Setter Property="Foreground" Value="#ffFF4E00"/>-->
+        <!--<Setter Property="BorderBrush" Value="#ff4F4F4F"/>-->
+        <Setter Property="Padding" Value="0 0 0 2"/>
+        <Setter Property="MaxWidth" Value="250"/>
+        <Setter Property="CacheMode">
+            <Setter.Value>
+                <BitmapCache RenderAtScale="1" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--ToolTip:ToolTipStyle-->
+    <Style x:Key="ToolTipStyle" TargetType="ToolTip">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontFamily" Value="Arial,SimSun,MS UI Gothic" />
+        <Setter Property="Background" Value="White" />
+        <!--<Setter Property="Foreground" Value="#ffFF4E00"/>-->
+        <!--<Setter Property="BorderBrush" Value="#ff4F4F4F"/>-->
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="CacheMode">
+            <Setter.Value>
+                <BitmapCache RenderAtScale="1" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="ToolTip" BasedOn="{StaticResource ToolTipStyle}">
+        <Setter Property="CacheMode">
+            <Setter.Value>
+                <BitmapCache RenderAtScale="1" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

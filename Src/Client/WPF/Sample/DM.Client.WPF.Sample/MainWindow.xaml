@@ -1,0 +1,8 @@
+﻿<Window x:Class="DM.Client.WPF.Sample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sample" Height="350" Width="525" ResizeMode="NoResize" Background="Black">
+    <Grid>
+        <Button Content="Sample" x:Name="Test" Width="100" Height="80" Style="{StaticResource ResourceKey=BaseButton}" Click="Test_Click"/>
+    </Grid>
+</Window>

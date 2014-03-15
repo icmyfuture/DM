@@ -1,0 +1,27 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="DM.Web.SL.Controls.MessageBox.MessagePage"
+	d:DesignWidth="640" d:DesignHeight="480" Loaded="UserControl_Loaded" Width="385" MouseLeftButtonDown="UserControl_MouseLeftButtonDown">
+    <UserControl.CacheMode>
+        <BitmapCache RenderAtScale="1" />
+    </UserControl.CacheMode>
+    <Border x:Name="LayoutRoot" Width="Auto" Height="Auto" BorderThickness="1,1,1,1" CornerRadius="10,10,10,10">
+		<StackPanel Height="Auto" Width="Auto" x:Name="LayoutPanel">
+			<Border Height="24" VerticalAlignment="Top" Width="Auto" BorderThickness="0,0,0,1">
+				<StackPanel Height="Auto" Width="Auto" x:Name="TitlePanel" Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource BasicTextBlock}" Height="Auto" x:Name="TitleText" Width="Auto" Text="" TextWrapping="Wrap" Margin="5,0,0,0" VerticalAlignment="Center"/>
+				</StackPanel>
+			</Border>
+			<StackPanel Height="Auto" Width="Auto" x:Name="ContentPanel" Orientation="Horizontal" Background="{x:Null}">
+				<TextBlock Height="Auto" Width="Auto" Text="" TextWrapping="Wrap" Margin="10,10,10,10" x:Name="MessageText"/>
+			</StackPanel>
+			<Border Height="Auto" VerticalAlignment="Stretch" Width="Auto" BorderThickness="0,1,0,0">
+				<StackPanel Height="Auto" Width="Auto" x:Name="ButtonPanel" Orientation="Horizontal" Background="{x:Null}" HorizontalAlignment="Stretch"/>
+			</Border>
+		</StackPanel>
+	</Border>
+</UserControl>

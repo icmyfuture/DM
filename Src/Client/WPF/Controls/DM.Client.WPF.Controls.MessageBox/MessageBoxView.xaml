@@ -1,0 +1,32 @@
+﻿<MessageBox:BaseMessageBox x:Class="DM.Client.WPF.Controls.MessageBox.MessageBoxView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                           xmlns:MessageBox="clr-namespace:DM.Client.WPF.Controls.MessageBox" Topmost="True" Width="400" Height="200">
+    <MessageBox:BaseMessageBox.Resources>
+        <ControlTemplate x:Key="textnobg" TargetType="{x:Type TextBox}">
+            <Grid>
+                <ScrollViewer x:Name="PART_ContentHost"  />
+            </Grid>
+        </ControlTemplate>
+    </MessageBox:BaseMessageBox.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Background="#FF282828">
+            <StackPanel Orientation="Horizontal" Margin="20 5">
+                <Image x:Name="msgIcon" Margin="0,0,5,0" Width="60" Height="60"></Image>
+                <TextBox x:Name="txtContent" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" IsReadOnly="True" Width="257" MaxHeight="130" Margin="5,0,0,0" Template="{DynamicResource textnobg}" Foreground="White" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" Cursor="Arrow" VerticalAlignment="Center" />
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="1" Background="#FF333333">
+            <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="0,0,0,10" >
+                <Button x:Name="btnOK" IsDefault="True" Style="{DynamicResource BaseButton}" MinWidth="80" Click="BtnOkClick" Margin="10, 0, 5, 0" Width="75" Height="29"/>
+                <Button x:Name="btnYes" IsDefault="True" Style="{DynamicResource BaseButton}" MinWidth="80" Click="BtnYesClick" Margin="10, 0, 5, 0" Width="75" Height="29"/>
+                <Button x:Name="btnNo" Style="{DynamicResource BaseButton}" MinWidth="80" Click="BtnNoClick" Margin="10, 0, 5, 0" Width="75" Height="29"/>
+                <Button x:Name="btnCancel" IsCancel="True" Style="{DynamicResource BaseButton}" MinWidth="80"  Click="BtnCancelClick" Margin="10, 0, 5, 0" Width="75" Height="29"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</MessageBox:BaseMessageBox>

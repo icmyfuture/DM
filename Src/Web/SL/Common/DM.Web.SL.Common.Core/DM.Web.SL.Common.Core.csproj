@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9289ED7B-D098-429E-9345-95902118188A}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DM.Web.SL.Common.Core</RootNamespace>
+    <AssemblyName>DM.Web.SL.Common.Core</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\..\Publish\Web\SL\Dlls\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\..\Publish\Web\SL\Dlls\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core">
+      <HintPath>$(TargetFrameworkDirectory)System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App\AppHelpInfo.cs" />
+    <Compile Include="App\AppInterfaceData.cs" />
+    <Compile Include="App\IApplicationDispatcher.cs" />
+    <Compile Include="App\IApplicationInterface.cs" />
+    <Compile Include="DragDrop\AllowDrop.cs" />
+    <Compile Include="DragDrop\AllowDropBoxes.cs" />
+    <Compile Include="DragDrop\DragCursor.cs" />
+    <Compile Include="DragDrop\DragDropBehaviour.cs" />
+    <Compile Include="DragDrop\DragDropEffects.cs" />
+    <Compile Include="DragDrop\DragDropExtensions.cs" />
+    <Compile Include="DragDrop\DragEventArgs.cs" />
+    <Compile Include="DragDrop\DragEventHandler.cs" />
+    <Compile Include="DragDrop\ElementTransformDragCursor.cs" />
+    <Compile Include="DragDrop\Guard.cs" />
+    <Compile Include="DragDrop\IDropTarget.cs" />
+    <Compile Include="DragDrop\PopupDragCursor.cs" />
+    <Compile Include="DragDrop\Primitives\DragOperation.cs" />
+    <Compile Include="DragDrop\Primitives\DragOperationCompletedEventArgs.cs" />
+    <Compile Include="DragDrop\Primitives\DragOperationCompletedEventHandler.cs" />
+    <Compile Include="DragDrop\Primitives\DragOperationDeltaEventArgs.cs" />
+    <Compile Include="DragDrop\Primitives\DragOperationDeltaEventHandler.cs" />
+    <Compile Include="DragDrop\Primitives\DragOperationStartedEventArgs.cs" />
+    <Compile Include="DragDrop\Primitives\DragOperationStartedEventHandler.cs" />
+    <Compile Include="DragDrop\Primitives\IMouseEventArgs.cs" />
+    <Compile Include="LanguageInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

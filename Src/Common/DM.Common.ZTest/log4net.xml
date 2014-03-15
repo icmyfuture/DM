@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<log4net>
+  <root>
+    <!--假如只需要看看sql设置info就够了，假如你要调试可以设置为debug或all-->
+    <priority value="info" />
+    <appender-ref ref="rollingfile" />
+  </root>
+
+  <logger name="applicationinfolog">
+    <level value="info" />
+    <appender-ref ref="rollingfile_app" />
+  </logger>
+
+  <appender name="rollingfile" type="log4net.appender.rollingfileappender,log4net" >
+    <!--日志文件名开头-->
+    <file value="Log\Nhibernate_Log.txt" />
+    <!--是否追加到文件-->
+    <appendToFile value="true" />
+    <!--混合使用日期和文件大小变换日志文件名-->
+    <rollingStyle value="Composite" />
+    <!--日期的格式-->
+    <datePattern value="yyyy.MM.dd" />
+    <!--最大变换数量-->
+    <maxSizeRollBackups value="20" />
+    <!--最大文件大小-->
+    <maximumFileSize value="5MB" />
+    <!--日志文件名是否为静态-->
+    <staticLogFileName value="true"/>
+    <layout type="log4net.layout.patternlayout,log4net">
+      <param name="conversionpattern" value="%d [%t] %-5p %c [%x] &lt;%x{auth}&gt; - %m%n" />
+    </layout>
+  </appender>
+
+  <appender name="rollingfile_app" type="log4net.appender.rollingfileappender,log4net" >
+    <param name="file" value="Log\Nhibernate_AppLog.txt" />
+    <param name="appendtofile" value="false" />
+    <param name="rollingstyle" value="date" />
+    <param name="datepattern" value="yyyy.mm.dd" />
+    <param name="staticlogfilename" value="true" />
+    <layout type="log4net.layout.patternlayout,log4net">
+      <param name="conversionpattern" value="%d [%t] %-5p %c [%x] &lt;%x{auth}&gt; - %m%n" />
+    </layout>
+  </appender>
+</log4net>
