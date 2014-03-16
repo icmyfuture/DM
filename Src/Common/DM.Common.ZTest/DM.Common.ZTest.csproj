@@ -68,6 +68,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DbEntities\User.cs" />
+    <Compile Include="Test.Async.cs" />
     <Compile Include="Test.Service.cs" />
     <Compile Include="Test.Data.cs" />
     <Compile Include="App.xaml.cs">
