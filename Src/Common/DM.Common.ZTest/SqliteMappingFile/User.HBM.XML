@@ -4,7 +4,6 @@
 		<id name="ID" column="ID">
 			<generator class="identity"/>
 		</id>
-		<property name="ID" column="ID" />
 		<property name="Name" column="Name" />
 		<property name="CreatedTime" column="CreatedTime"/>
 		<property name="IsAdmin" column="IsAdmin"/>
