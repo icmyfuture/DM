@@ -41,10 +41,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Lib\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\..\Lib\Unity\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\..\..\Lib\Unity\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\..\..\Lib\NHibernate\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SQLite, Version=1.0.84.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -107,6 +114,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Compile Include="Test.Unity.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DM.Common.Config\DM.Common.Config.csproj">

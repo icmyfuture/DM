@@ -9,7 +9,7 @@ namespace DM.Common.ZTest
     {
         public App()
         {
-            AppHelper.Instance.Attach(this, () => new AsyncTest().Test());
+            AppHelper.Instance.Attach(this, () => new UnityTest().Test());
         }
     }
 }
